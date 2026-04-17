@@ -2,7 +2,7 @@ pipeline {
     agent any
 
     tools {
-        maven 'Maven3' // Change this if your tool name in Jenkins is different
+        maven 'Maven3' // Make sure this matches your Global Tool Configuration name
     }
 
     environment {
@@ -13,8 +13,8 @@ pipeline {
 
         stage('Checkout') {
             steps {
-                // Don't forget to put your actual URL here before running!
-                git branch: 'main', url: 'YOUR_GIT_REPO_URL' 
+                // Your actual GitHub repo URL is here now
+                git branch: 'main', url: 'https://github.com/Dinesh-Babu-2005/ci-cd-sonar-docker' 
             }
         }
 
@@ -40,7 +40,6 @@ pipeline {
 
         stage('Run Container') {
             steps {
-                // The '|| echo...' prevents the pipeline from crashing on the first run
                 bat 'docker rm -f ex5-container || echo "No container to remove"'
                 bat 'docker run -d --name ex5-container -p 8080:8080 ex5-app'
             }
