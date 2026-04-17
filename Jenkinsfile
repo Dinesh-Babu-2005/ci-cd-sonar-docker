@@ -41,7 +41,7 @@ pipeline {
         stage('Run Container') {
             steps {
                 bat 'docker rm -f ex5-container || echo "No container to remove"'
-                bat 'docker run -d --name ex5-container -p 8080:8080 ex5-app'
+                bat 'docker run -d --name ex5-container -p 8081:8080 ex5-app'
             }
         }
     }
