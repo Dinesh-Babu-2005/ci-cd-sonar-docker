@@ -2,6 +2,6 @@ FROM eclipse-temurin:21-jdk-jammy
 
 WORKDIR /app
 
-COPY target/ex5-1.0-SNAPSHOT.jar app.jar
+COPY target/ex6-realtime-app-1.0-SNAPSHOT.jar app.jar
 
 ENTRYPOINT ["java", "-jar", "app.jar"]
